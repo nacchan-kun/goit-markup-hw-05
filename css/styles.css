@@ -651,47 +651,55 @@ section {
 
 /* Modal window */
 
-.modal {
-  background-color: rgba(46, 47, 66, 0.4);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(46, 47, 66, 0.4);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-container {
+z-index: 999;
+display: flex;
+justify-content: center;
+align-items: center;
+
+.modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+
   width: 408px;
   min-height: 584px;
-  background: #fcfcfc;
+  background-color: #fcfcfc;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 72px 24px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
-}
+  transform: translate(-50%, -50%);
 
-.modal-container.is-open {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+padding: 72px 24px 24px 24px;
+display: flex;
+flex-direction: column;
+align-items: center;
+overflow-y: auto;
+
+.backdrop.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+.backdrop:not(is-open) .modal {
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 .close-button {
@@ -768,8 +776,8 @@ section {
   border-color: #4d5ae5;
 }
 
-.input-container:hover .icon,
-.input-container:focus-within .icon {
+.input-container:hover,
+.input-container:focus-within {
   fill: #4d5ae5;
 }
 
@@ -874,7 +882,7 @@ section {
   fill: transparent;
   margin-right: 8px;
 }
-input:checked {
+input:checked .privacy-label {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
