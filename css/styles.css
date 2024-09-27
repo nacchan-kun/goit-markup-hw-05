@@ -665,16 +665,10 @@ section {
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-z-index: 999;
-display: flex;
-justify-content: center;
-align-items: center;
-
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-
   width: 408px;
   min-height: 584px;
   background-color: #fcfcfc;
@@ -682,15 +676,8 @@ align-items: center;
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transform: translate(-50%, -50%);
-
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-padding: 72px 24px 24px 24px;
-display: flex;
-flex-direction: column;
-align-items: center;
-overflow-y: auto;
 
 .backdrop.is-open {
   opacity: 1;
