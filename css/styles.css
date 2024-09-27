@@ -710,12 +710,7 @@ section {
   fill: #2e2f42;
 }
 
-.close-button:hover {
-  fill: #ffffff;
-  background-color: #404bbf;
-  border: none;
-}
-.close-button:focus {
+.close-button:hover .close-button:focus {
   fill: #ffffff;
   background-color: #404bbf;
   border: none;
